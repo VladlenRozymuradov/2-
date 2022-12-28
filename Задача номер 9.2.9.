@@ -1,0 +1,28 @@
+//9.2.9.
+
+#include <string>
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main(){
+    ifstream in1("input1.txt");
+    ifstream in2("input2.txt");
+    ofstream out("output.txt");
+    int n1, a, n2, b;
+    in1>>a;
+    while (in1>>n1){
+        in2>>n2;
+        out<<n2<<" ";
+        out<<n1<<" ";
+        in2>>b;
+        in1>>a;
+    }
+    in2>>n2;
+    out<<n2;
+        in1.close();
+        in2.close();
+        out.close();
+        return 0;
+        }
