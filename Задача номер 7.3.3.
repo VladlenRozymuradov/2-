@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string znaki=" .,:;?!", s, minw; int nom;
+    cout<<"Enter line >> ";
+    getline(cin, s);
+    nom=s.find_first_of(znaki);
+    minw=s.substr(0, nom);
+    while (nom>-1){
+        if (nom<minw.size()) minw=s.substr(0, nom);
+        if (s[nom]==znaki[0]) s=s.substr(nom+1, s.size()-nom);
+        else if  (s[nom]!=znaki[0]||nom!=s.size()) s=s.substr(nom+2, s.size()-nom);
+        nom=s.find_first_of(znaki);
+    }
+    cout<<minw;
+
+    return 0;
+}
